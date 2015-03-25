@@ -1,0 +1,36 @@
+.container{
+    padding:16px 32px;
+}
+
+.page-header h2{
+    font-size: 1.5em;
+    color:#999;  
+}
+
+.toolbar{
+    padding:16px 16px 36px 16px;
+    background-color:#EAEAEA;
+    overflow:hidden;
+    border-radius:6px;
+    margin-bottom:16px;
+}
+
+#stats{
+    margin:0;
+    padding:8px;
+    top:8px;
+    right:8px;
+    position: fixed;
+    background-color:#CCC;
+    color:#444;
+    z-index: 5;
+}
+
+#submit-terrain{
+    margin-top:32px;
+}
+
+#map-container{
+    overflow:auto;
+    max-height: 800px;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html ng-app="terrainApp">
+    <head>
+        <title>A. Rothuis | Example: diamondsquare.js v0.1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/custom.css"/>
+        
+    </head>
+    <body>
+        
+        <div class="container">
+            <div class="row">
+                <div class="page-header">
+                    <h1>Example: diamondsquare.js v0.1</h1>
+                    <h2>By A. Rothuis</h2>
+                    <p>In this example, using Bootstrap, Angular and Seedrandom, we've set up a simple pixel renderer (in canvas) to display different colours based on the generated heightmap. In future updates of this example, we would like to present a customizable renderer.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" toolbar col-md-3" >
+                    <h2>Settings</h2>
+                    <form name="terrain-form" ng-submit="generate()" ng-controller="TerrainCtrl" >
+                        <pre id="stats" ng-show="stats && statsInfo">{{ statsInfo }}</pre>
+                        <h3>Terrain</h3>
+                        <div class="form-group">
+                            <label for="seed">Seed</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="seed" placeholder="Enter seed" ng-model="settings.seed">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" ng-click="randomSeed()" type="button">Random</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="size">Size factor (N in 2<sup>N</sup>+1)</label>
+                            <div class="alert alert-danger" ng-show="warning.size"><p> {{ warning.size }}</p></div>
+                            <input type="number" class="form-control" id="size" placeholder="Enter number" ng-model="settings.size">
+                        </div>
+                        <div class="form-group">
+                            <label for="roughness">Roughness</label>
+                            <input type="number" class="form-control" id="roughness" placeholder="Enter number" ng-model="settings.roughness">
+                        </div>
+                        <div class="form-group">
+                            <label for="smoothness">Smoothness</label>
+                            <div class="alert alert-danger" ng-show="warning.smoothness"><p> {{ warning.smoothness }}</p></div>
+                            <input type="number" class="form-control" id="smoothness" placeholder="Enter number" ng-model="settings.smoothness">
+                        </div>
+                        <label for="range-min">Range</label>
+                        <div class="input-group">
+                            <label for="range-min" class="input-group-addon">Min</label>
+                            <input type="number" class="form-control" id="range-min" ng-model="settings.min">
+                            <label for="range-max" class="input-group-addon">Max</label>
+                            <input type="number" class="form-control" id="range-max" ng-model="settings.max">
+                        </div>
+                        <div class="checkbox">
+                                <label for="stats-check">
+                                    <input id="stats-check" type="checkbox" ng-model="stats">
+                                    Show statistics
+                                </label>
+                        </div>
+                        <input type="submit" id="submit-terrain" class="btn btn-lg btn-block btn-primary" value="Generate terrain">
+                    </form>
+                </div>
+                <div class="col-md-9">
+                    <div id="map-container">
+                        <canvas id="map"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- libraries -->
+        <script type="text/javascript" src="js/angular.min.js"></script>
+        <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="js/seedrandom.min.js"></script>
+        <script type="text/javascript" src="js/diamondsquare-0.1.min.js"></script>
+        
+        <!-- custom scripts -->
+        <script type="text/javascript" src="js/canvasrenderer.js"></script>
+        <script type="text/javascript" src="js/controllers.js"></script>
+    </body>
+</html>
