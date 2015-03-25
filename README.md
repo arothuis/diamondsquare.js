@@ -7,7 +7,7 @@ Click here for a  [simple example](http://www.arothuis.nl/projects/diamondsquare
 ## How to use
 To start, initialize the DiamondSquare object. The constructor accepts an object filled with named settings. Diamondsquare.js does not include a seeded pseudo-random number generator (prng). Diamondsquare.js is compatible with: [seedrandom by David Bau](https://github.com/davidbau/seedrandom).
 
-```
+```js
 // default settings, no seedfunction
 var ds = new DiamondSquare();
 
