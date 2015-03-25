@@ -35,4 +35,4 @@ ds.make();
 ```
 
 ### Thanks
-Inspired by the awesome work of [Amit Patel](http://www.redblobgames.com/) and diamond-square implementations of [Loktar] (http://www.somethinghitme.com/2009/12/06/terrain-generation-with-canvas-and-javascript/), [Boxley] (http://www.paulboxley.com/blog/2011/03/terrain-generation-mark-one) and [srchea] (http://srchea.com/terrain-generation-the-diamond-square-algorithm-and-three-js).
+Inspired by the awesome work of [Amit Patel](http://www.redblobgames.com/) and the diamond-square implementations of [Loktar] (http://www.somethinghitme.com/2009/12/06/terrain-generation-with-canvas-and-javascript/), [Boxley] (http://www.paulboxley.com/blog/2011/03/terrain-generation-mark-one) and [srchea] (http://srchea.com/terrain-generation-the-diamond-square-algorithm-and-three-js).
