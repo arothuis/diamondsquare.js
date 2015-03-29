@@ -231,7 +231,7 @@
          * Predefines given rows or columns in the map. Called via setDefinedValues method.
          * Accepts text or integers to determine which row or column should be filled.
          * 
-         * @param {object} multiple The specific columns or rows, formatted as: { [x|y|name] : [value], ... }
+         * @param {object} rowsOrColumns The specific columns or rows, formatted as: { [x|y|name] : [value], ... }
          * @param {string} type Whether it set "columns" or "rows"
          * @param {boolean} override Whether existing values should be overridden
          * @returns {DiamondSquare}
