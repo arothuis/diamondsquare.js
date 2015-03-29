@@ -136,5 +136,8 @@ ds.addCallbackPerPoint(diagonalMountain, heightChecker);
 ```
 Remove all callbacks by calling the removeAllCallbacksPerPoint method: `ds.removeAllCallbacksPerPoint()`.
 
+## Contact
+You can find me on Twitter ((@arothuis))[http://www.twitter.nl/arothuis] and on the (interwebs)[http://www.arothuis.nl].
+
 ## Thanks
 Inspired by the awesome work of [Amit Patel](http://www.redblobgames.com/) and the diamond-square implementations of [Loktar] (http://www.somethinghitme.com/2009/12/06/terrain-generation-with-canvas-and-javascript/), [Boxley] (http://www.paulboxley.com/blog/2011/03/terrain-generation-mark-one) and [srchea] (http://srchea.com/terrain-generation-the-diamond-square-algorithm-and-three-js).
