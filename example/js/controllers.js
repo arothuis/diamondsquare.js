@@ -10,7 +10,7 @@ terrainApp.controller('TerrainCtrl', function ($scope){
     $scope.stats = false;
     
     $scope.presets = [
-            'None', 'Outer water'
+            'None', 'Outer Water', 'Outer Water, High Mid'
     ];
     $scope.selectedPreset = "None";
 
@@ -79,8 +79,13 @@ terrainApp.controller('TerrainCtrl', function ($scope){
         ds.setSettings($scope.settings);
         ds.createMap();
         
-        if($scope.selectedPreset === "Outer water"){
-            ds.setColumns({first:0, last:0}).setRows({first:0, last:0});
+        switch($scope.selectedPreset){
+            case "Outer Water":
+                ds.setColumns({first:0, last:0}).setRows({first:0, last:0});
+                break;
+            case "Outer Water, High Mid":
+                ds.setColumns({first:0, last:0}).setRows({first:0, last:0}).setNamedPoints({'mid': 255});
+                break;
         }
         ds.make();
         
