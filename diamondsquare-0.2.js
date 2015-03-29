@@ -26,8 +26,8 @@
          * overridden by given settings as object.
          * 
          * 
-         * @param {object} settings { settingKey : settingValue, ... }
-         * @returns {diamondsquare_L8.DiamondSquare}
+         * @param {Object} settings { settingKey : settingValue, ... }
+         * @returns {DiamondSquare}
          */
         function DiamondSquare(settings) {
             this.settings = this.defaultSettings;
@@ -76,8 +76,8 @@
          * Sets value to max if higher than max, sets value to min if lower than min
          * Rounds down the value if it is within bounds
          * 
-         * @param {int} value
-         * @returns {int} Rounded down or limited value
+         * @param {Number} value
+         * @returns {Number} Rounded down or limited value
          */
         DiamondSquare.prototype.limit = function (value){
             var type = typeof(value);
@@ -104,9 +104,9 @@
          * Random number generator, picks a random number between this.settings.max and this.settings.min.
          * Adds/subtracts a given value if desired. 
          * 
-         * @param {boolean} inclusive Whether the max/min should be included in the possible numbers
-         * @param {int} modify Adds to or subtracts from the random value
-         * @returns {int} Random number
+         * @param {Boolean} inclusive Whether the max/min should be included in the possible numbers
+         * @param {Number} modify Adds to or subtracts from the random value
+         * @returns {Number} Random number
          */
         DiamondSquare.prototype.randomNum = function(inclusive, modify){
             inclusive = inclusive != null ? inclusive : true;
@@ -123,7 +123,7 @@
         /**
          * Function to retrieve the size factor of any given map. Can be used to
          * determine if an existing map complies to the required 2^N+1 structure.
-         * @param {object} map
+         * @param {Object} map
          * @returns {Number} Sizefactor
          */
         DiamondSquare.prototype.getSizeFactor = function(map){
@@ -137,7 +137,7 @@
          * 
          * The callback has to return a Number, the value that is going to be set.
          * 
-         * @param {function} callback
+         * @param {Function} callback
          * @returns {DiamondSquare}
          */
         DiamondSquare.prototype.addCallbackPerPoint = function(callback){
@@ -158,11 +158,11 @@
         
         /**
          * Runs the set callbacks if there are any.
-         * @param {string} callbackName Name of the callback type: i.e. 'perPoint'
-         * @param {int} x
-         * @param {int} y
-         * @param {int} value
-         * @returns {int} The value to be set for the point.
+         * @param {String} callbackName Name of the callback type: i.e. 'perPoint'
+         * @param {Number} x
+         * @param {Number} y
+         * @param {Number} value
+         * @returns {Number} The value to be set for the point.
          */
         DiamondSquare.prototype.runCallbacks = function(callbackName, x, y, value){
             if(typeof(this.callbacks[callbackName]) !== 'undefined'){
@@ -183,8 +183,8 @@
          * it generates a dimension based on factor as N in 2^N+1 (a prerequisite
          * for the Diamond-Square algorithm to work).
          * 
-         * @param {int} factor Dimension or N in 2^N+1
-         * @param {boolean} isDimension Whether to use factor as dimension or generate one from it
+         * @param {Number} factor Dimension or N in 2^N+1
+         * @param {Boolean} isDimension Whether to use factor as dimension or generate one from it
          * @returns {DiamondSquare}
          */
         DiamondSquare.prototype.createMap = function (factor, isDimension){
@@ -220,8 +220,8 @@
          * 
          * Called by startDisplacement and midpointDisplacement methods.
          * 
-         * @param {int} amount To what extent displacement occurs
-         * @returns {int} The displacement value used to set points
+         * @param {Number} amount To what extent displacement occurs
+         * @returns {Number} The displacement value used to set points
          */
         DiamondSquare.prototype.displace = function (amount){
            return (Math.floor(this.randomNum(true, this.settings.mid)*(amount / this.settings.maxKey*2*this.settings.roughness/1000)));
@@ -231,9 +231,9 @@
          * Predefines given rows or columns in the map. Called via setDefinedValues method.
          * Accepts text or integers to determine which row or column should be filled.
          * 
-         * @param {object} rowsOrColumns The specific columns or rows, formatted as: { [x|y|name] : [value], ... }
-         * @param {string} type Whether it set "columns" or "rows"
-         * @param {boolean} override Whether existing values should be overridden
+         * @param {Object} rowsOrColumns The specific columns or rows, formatted as: { [x|y|name] : [value], ... }
+         * @param {String} type Whether it set "columns" or "rows"
+         * @param {Boolean} override Whether existing values should be overridden
          * @returns {DiamondSquare}
          */
         DiamondSquare.prototype.setRowsOrColumns = function (rowsOrColumns, type, override){
@@ -278,8 +278,8 @@
          * Set a column or multiple columns, identifiable by name or number with certain values.
          * Names are: first, mid, last.
          * 
-         * @param {object} columnsAndValues Object containing columns and values of format {name|number : value}
-         * @param {boolean} override Whether existing values should be overridden
+         * @param {Object} columnsAndValues Object containing columns and values of format {name|number : value}
+         * @param {Boolean} override Whether existing values should be overridden
          * @returns {DiamondSquare}
          */
         DiamondSquare.prototype.setColumns = function(columnsAndValues, override){
@@ -292,8 +292,8 @@
          * Set a column or multiple columns, identifiable by name or number with certain values.
          * Names are: first, mid, last. 
          * 
-         * @param {object} rowsAndValues Object containing rows and values of format {name|number : value}
-         * @param {boolean} override Whether existing values should be overridden
+         * @param {Object} rowsAndValues Object containing rows and values of format {name|number : value}
+         * @param {Boolean} override Whether existing values should be overridden
          * @returns {DiamondSquare}
          */
         DiamondSquare.prototype.setRows = function(rowsAndValues, override){
@@ -304,8 +304,8 @@
         
         /**
          * Predefines given specific points in the map. Called via setDefinedValues method.
-         * @param {object} specified The specific values, formatted as: { [x] : { [y] : [value], ... }
-         * @param {boolean} override Whether existing values should be overridden
+         * @param {Object} specified The specific values, formatted as: { [x] : { [y] : [value], ... }
+         * @param {Boolean} override Whether existing values should be overridden
          * @returns {DiamondSquare}
          */
         DiamondSquare.prototype.setPoints = function (specified, override){
@@ -328,7 +328,7 @@
 
         /**
          * Set given named points in the map. Called via setDefinedValues method.
-         * @param {type} named The named values, formatted as: { [name] : [value], ... }
+         * @param {Object} named The named values, formatted as: { [name] : [value], ... }
          * @returns {DiamondSquare}
          */
         DiamondSquare.prototype.setNamedPoints = function (named, override){
@@ -375,10 +375,10 @@
         
         /**
          * Sets a point on the map. 
-         * @param {int} x
-         * @param {int} y 
-         * @param {int} value The value that has to be set at specified key in the map
-         * @param {boolean} override Whether existing values should be overridden
+         * @param {Number} x
+         * @param {Number} y 
+         * @param {Number} value The value that has to be set at specified key in the map
+         * @param {Boolean} override Whether existing values should be overridden
          * @returns {DiamondSquare.map}
          */
         DiamondSquare.prototype.setPoint = function(x, y, value, override) {
@@ -428,7 +428,7 @@
          * in the map until the dimension is smaller than 1 point. Then, we have
          * set all the points in the map.
          * 
-         * @param {int} dimension The dimension of the squares and diamonds in which points will be set.
+         * @param {Number} dimension The dimension of the squares and diamonds in which points will be set.
          * @returns {DiamondSquare}
          */
         DiamondSquare.prototype.midpointDisplacement = function(dimension){
@@ -485,7 +485,7 @@
         
         /**
          * Iterate over the map, averaging each point with its neighbors' values.
-         * @param {int} factor How many times it should iterate over the map.
+         * @param {Number} factor How many times it should iterate over the map.
          * @returns {DiamondSquare}
          */
         DiamondSquare.prototype.smoothen = function (factor) {
@@ -505,8 +505,8 @@
         
         /**
          * Smoothens a certain point out based on it's horizontal and vertical neighbors.
-         * @param {int} x
-         * @param {int} y
+         * @param {Number} x
+         * @param {Number} y
          * @returns {DiamondSquare}
          */
         DiamondSquare.prototype.smoothenPoint = function(x,y){
