@@ -4,11 +4,15 @@ var terrainApp = angular.module('terrainApp', []);
 
 terrainApp.controller('TerrainCtrl', function ($scope){
     
-    var ds = new DiamondSquare({prng: Math.seedrandom});
+    var ds = new DiamondSquare({name: 'heightmap', prng: Math.seedrandom});
     
     $scope.showstats = false;
     $scope.stats = false;
     
+    $scope.presets = [
+            'None', 'Outer water'
+    ];
+    $scope.selectedPreset = "None";
 
     $scope.settings = {
         seed: ds.settings.seed,
@@ -64,7 +68,7 @@ terrainApp.controller('TerrainCtrl', function ($scope){
 
     
     var canvas = document.getElementById('map');
-    var render = new CanvasRenderer(canvas, ds.map);
+    var render = new CanvasRenderer(canvas, ds.map, 'heightmap');
     
     $scope.generate = function(){
         var startTime, genTime, genDelta, renderDelta, totalDelta;
@@ -73,6 +77,11 @@ terrainApp.controller('TerrainCtrl', function ($scope){
         
         // make the heightmap
         ds.setSettings($scope.settings);
+        ds.createMap();
+        
+        if($scope.selectedPreset === "Outer water"){
+            ds.setColumns({first:0, last:0}).setRows({first:0, last:0});
+        }
         ds.make();
         
         genTime  = new Date().getTime();

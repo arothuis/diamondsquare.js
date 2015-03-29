@@ -22,8 +22,13 @@
         };
         // @todo: make this customizable
         CanvasRenderer.prototype.getColor = function(mapValue){
+            
             var r, g, b;
-            var tint = (mapValue)/100;
+            var tint = (mapValue)/120;
+            
+            if(mapValue === null){
+                return {r: 255, g:0, b:0};
+            }
             
             var waterLevel = 100;
             var grassLevel = waterLevel+6;
