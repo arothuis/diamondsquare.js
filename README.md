@@ -1,8 +1,8 @@
 # diamondsquare.js
 A Javascript library for generating maps and applying the [diamond-square algorithm](http://en.wikipedia.org/wiki/Diamond-square_algorithm) to them.
 
-## Example
-Click here for a  [simple example](http://www.arothuis.nl/projects/diamondsquare/) of what you can do with diamondsquare.js.
+## Notice
+This library, a working implementation of the diamond square algorithm, is a toy library and is no longer maintained.
 
 ## How to use
 
